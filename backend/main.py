@@ -4,12 +4,26 @@ from contextlib import asynccontextmanager
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
 from database import get_db, init_db
+
+
+def verify_api_key(request: Request) -> None:
+    """Reject requests that don't carry the correct X-API-Key header.
+    If API_KEY is not set in env, all requests are allowed (dev mode)."""
+    expected = os.getenv("API_KEY")
+    if not expected:
+        return
+    key = request.headers.get("X-API-Key")
+    if key != expected:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or missing API key",
+        )
 from routes import accounts, fetch, memory, settings, tweets
 from services.scheduler import start_scheduler, stop_scheduler
 
@@ -38,6 +52,7 @@ app = FastAPI(
     version="1.0.0",
     description="Twitter AI Monitoring Dashboard backend",
     lifespan=lifespan,
+    dependencies=[Depends(verify_api_key)],
 )
 
 _cors_origins = [
