@@ -71,7 +71,7 @@ export default function AccountsPage() {
       : null
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl pt-4">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-zinc-100">Account Manager</h1>

@@ -71,7 +71,7 @@ export default function SettingsPage() {
   const dirty = parseInt(inputVal, 10) !== savedInterval
 
   return (
-    <div className="max-w-xl">
+    <div className="max-w-xl pt-4">
       {/* Header */}
       <div className="mb-6">
         <h1 className="flex items-center gap-2 text-2xl font-bold text-zinc-100">

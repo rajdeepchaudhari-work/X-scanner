@@ -52,7 +52,7 @@ export default function DashboardPage() {
   }, [loadTweets])
 
   return (
-    <div>
+    <div className="pt-4">
       {/* Header */}
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>

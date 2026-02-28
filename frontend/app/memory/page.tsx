@@ -25,7 +25,7 @@ export default function MemoryPage() {
   }, [])
 
   return (
-    <div>
+    <div className="pt-4">
       {/* Header */}
       <div className="mb-6">
         <h1 className="flex items-center gap-2 text-2xl font-bold text-zinc-100">
