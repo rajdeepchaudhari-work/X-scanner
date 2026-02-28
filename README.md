@@ -11,10 +11,11 @@
 [![SQLite](https://img.shields.io/badge/SQLite-lightblue?style=flat&logo=sqlite&logoColor=003B57)](https://sqlite.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4+-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
+[![Deploy](https://img.shields.io/badge/Vercel-Deployed-black?style=flat&logo=vercel&logoColor=white)](https://x-scanner-rc.vercel.app)
 
 Monitor tweets from selected accounts, store them, and feed an AI reasoning memory layer — all in a clean dark-mode dashboard.
 
-[Features](#-features) · [Architecture](#-architecture) · [Quick Start](#-quick-start) · [API Reference](#-api-reference) · [Roadmap](#-roadmap)
+**[🚀 Live Demo](https://x-scanner-rc.vercel.app)** · [Features](#-features) · [Architecture](#-architecture) · [Quick Start](#-quick-start) · [API Reference](#-api-reference) · [Roadmap](#-roadmap)
 
 </div>
 
