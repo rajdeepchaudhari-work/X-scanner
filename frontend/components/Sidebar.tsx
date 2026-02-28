@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { LayoutDashboard, Users, Brain, Zap, Settings, BookOpen } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
+import { LayoutDashboard, Users, Brain, Zap, Settings, BookOpen, LogOut } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const NAV_ITEMS = [
@@ -15,6 +15,13 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const pathname = usePathname()
+  const router = useRouter()
+
+  async function handleLogout() {
+    await fetch("/api/auth", { method: "DELETE" })
+    router.push("/login")
+    router.refresh()
+  }
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 flex w-60 flex-col border-r border-zinc-800 bg-zinc-950">
@@ -94,11 +101,15 @@ export function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-zinc-800 p-4">
+      <div className="border-t border-zinc-800 p-4 space-y-3">
         <p className="text-[11px] font-medium text-zinc-500">X Scanner v1.0</p>
-        <p className="text-[10px] text-zinc-700">
-          Poll interval configurable in Settings
-        </p>
+        <button
+          onClick={handleLogout}
+          className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-zinc-500 transition-all hover:bg-zinc-800/60 hover:text-red-400"
+        >
+          <LogOut className="h-3.5 w-3.5" />
+          Sign out
+        </button>
       </div>
     </aside>
   )
