@@ -1,6 +1,8 @@
 import logging
 from contextlib import asynccontextmanager
 
+import os
+
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,9 +40,16 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+_cors_origins = [
+    "http://localhost:3000",
+    "https://x-scanner-rc.vercel.app",
+    # Additional origins can be added via CORS_ORIGINS env var (comma-separated)
+    *[o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()],
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

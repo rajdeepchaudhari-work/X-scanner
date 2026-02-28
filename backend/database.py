@@ -3,7 +3,9 @@ import contextlib
 import os
 from pathlib import Path
 
-DB_PATH = os.getenv("DATABASE_URL", str(Path(__file__).parent / "tweets.db"))
+# Use /data/tweets.db on Railway (persistent volume) or local fallback
+_default_db = "/data/tweets.db" if Path("/data").exists() else str(Path(__file__).parent / "tweets.db")
+DB_PATH = os.getenv("DATABASE_URL", _default_db)
 
 
 @contextlib.contextmanager
