@@ -325,3 +325,6 @@ Please open an issue first for large changes so we can discuss the approach.
 ## License
 
 MIT &copy; [Rajdeep Chaudhari](https://github.com/rajdeepchaudhari-work)
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a6dabebf-d58c-4074-ae10-dc4b2b0284f3" />
+
