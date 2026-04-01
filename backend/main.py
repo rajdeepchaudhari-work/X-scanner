@@ -57,7 +57,7 @@ app = FastAPI(
 
 _cors_origins = [
     "http://localhost:3000",
-    "https://x-scanner-rc.vercel.app",
+    # Add your production frontend URL here
     # Additional origins can be added via CORS_ORIGINS env var (comma-separated)
     *[o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()],
 ]
